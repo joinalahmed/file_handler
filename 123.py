@@ -8,7 +8,7 @@ gate4 = 'FREDKIN GATE'
 gate5 = 'PERES GATE'
 var2=[]
 count = 1
-
+m11 = ''
 my_fp = open("tt_generator.py", "w")
 my_fp.close()
 
@@ -97,6 +97,8 @@ with open('main1.tfc', 'r+') as file:
     for line in file:
         if line.strip() == 'END':
             break
+        if ('#' in line):
+            continue
         line1 = re.split(',', line)
         var1 = str(line1[0])
         var1 = re.split(' ',var1)
