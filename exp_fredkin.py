@@ -1,5 +1,7 @@
 import re
 
+
+#GLOBAL VARIABLES
 gate1 = 'NOT GATE'
 gate2 = 'C-NOT GATE'
 gate3 = 'TOFFOLI GATE'
