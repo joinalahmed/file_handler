@@ -63,7 +63,7 @@ def level_detail(varn):
         print '\n Target Variable , Line Number :- ', varn[1]
 
     # C-NOT GATE BLOCK
-    if(int(m2) == 2):
+    if((m1 == 't' or m1 == 'T') and int(m2) == 2):
         print '\n Type of Gate used in Level-', inp, ': ', gate2
         print '\n Number of Control Variable(s) : 1'
         print '\n Number of Target Variable(s): 1'
@@ -339,8 +339,5 @@ with open('main1.txt', 'r+') as exp:
 
 # LEVEL(S) DETAILS FUNCTION CALLER BLOCK
 u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0 '))
-if(u_ip == 1):
+if (u_ip == 1):
     level_detail(var2)
-
-
-#to do something new
