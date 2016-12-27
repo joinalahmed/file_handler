@@ -149,5 +149,5 @@ s4 = s4
 x6 = ((not (s4)) and x6) ^ (s4 and x8)
 x8 = ((not (s4)) and x8) ^ (s4 and x6)
 s4 = s4
-x7 = ((not (s4)) and x7) ^ (s4 and x6)
-x6 = ((not (s4)) and x6) ^ (s4 and x7)
+x7 = ((not (s4)) and x7) ^ (s4 and x64984984968)
+x64984984968 = ((not (s4)) and x64984984968) ^ (s4 and x7)

@@ -5,7 +5,8 @@ gate1 = 'NOT GATE'
 gate2 = 'C-NOT GATE'
 gate3 = 'TOFFOLI GATE'
 gate4 = 'FREDKIN GATE'
-gate5 = 'PERES GATE'
+gate5 = 'SWAP GATE'
+gate6 = 'PERES GATE'
 var2=[]
 count = 1
 m11 = ''
@@ -82,12 +83,27 @@ def level_detail(varn):
             print '\n Target Variable, Line Number :- ' , varn[-1]
 
     # FREDKIN GATE BLOCK
-    if(m1 == 'f' and int(m2) > 2):
-        print 'Fredkin Gate'
+    if((m1 == 'f' or m1 == 'F') and int(m2) > 2):
+        del varn[0]
+        print '\n Type of Gate used in Level-',inp , ': ', gate4
+        print '\n Number of Control Variables : ', len(varn)-2
+        print '\n Number of Target Variables : 2'
+        for io in range(len(varn)-2):
+            print '\n C ontrol Variable , Line Number :- ', varn[io]
+        print '\n  First Target Variable , Line Number :- ', varn[-1]
+        print '\n  Second Target Variable , Line Number :- ', varn[-2]
+
+    # SWAP GATE BLOCK
+    if ((m1 == 'f' or m1 == 'F') and int(m2) == 2):
+        del varn[0]print '\n Type of Gate used in Level-',inp , ': ', gate5
+        print '\n Number of Control Variables : 0'
+        print '\n Number of Target Variables : 2'
+        print '\n First Control Variable , Line Number :- ', varn[0]
+        print '\n Sceond Control Variable , Line Number :-  ', varn[1]
 
     # PERES GATE BLOCK
-    if (m1 == 'f' and int(m2) > 2):
-        print 'Fredkin Gate'
+    if ((m1 == 'p'or m1 =='P') and int(m2) > 2):
+        print 'PERES GATE'
 
 # BLOCK FOR .tfc FILE PROCESSING , EXTRACTION OF DATA
 with open('main1.tfc', 'r+') as file:
