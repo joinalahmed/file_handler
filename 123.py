@@ -359,4 +359,3 @@ with open('main1.txt', 'r+') as exp:
 u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0 '))
 if (u_ip == 1):
     level_detail(var2)
-    v = 0
