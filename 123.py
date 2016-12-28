@@ -42,7 +42,6 @@ def neg_ctl(hexo):
         mx.write(lo + '\n')
         mx.close()
 
-
 # BLOCK FOR LEVEL DETAILS
 def level_detail(varn):
     print '\n', 'Total Number of Level(s) in Circuit : ', len(varn) , ', Starting From 0 - ',len(varn)-1
@@ -149,7 +148,6 @@ with open('main1.tfc', 'r+') as file:
         ff.write('\n')
         ff.close()
 
-
 # LEVEL WISE EQUATION GENERATOR
 with open('main1.txt', 'r+') as exp:
     for lenn in exp:
@@ -252,7 +250,6 @@ with open('main1.txt', 'r+') as exp:
                     tem1.append('))')
                     tem = tem + tem1
                     vart = ''.join(tem)
-                    print vart
                     vf = open('tt_generator.py', 'a')
                     vf.write(vart + '\n')
                     vf.close()
@@ -269,17 +266,14 @@ with open('main1.txt', 'r+') as exp:
                         rt.append(' and ')
                     rt.append(ins[-2] + '))')
                     rt1 = ''.join(rt)
-                    print rt1
                     bn = open('tt_generator.py', 'a')
                     bn.write(rt1 + '\n')
                     bn.close()
 
-
-
         # PERES GATE LIBRARY HANDLER
         if (lib_id == 'P' or lib_id == 'p'):
-            print 'i am here'
-            print lenn
+            nj = 000
+            nj = nj +5261681
 
         # NCT AND GT LIBRARY HANDLER
         if (lib_id == 'T' or lib_id == 't'):
@@ -355,7 +349,6 @@ with open('main1.txt', 'r+') as exp:
                 qwerty1.close()
                 if "'" in str(lenn):
                     neg_ctl(lenn)
-
 
 # LEVEL(S) DETAILS FUNCTION CALLER BLOCK
 u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0 '))

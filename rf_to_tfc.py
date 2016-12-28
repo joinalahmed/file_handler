@@ -7,6 +7,7 @@ fp.close()
 list_var = []
 list_var1 = []
 
+# REAL FILE TO .tfc GENERATOR BLOCK
 fi_le = open('1.real','r+')
 for line in fi_le:
     if line.strip() == '.begin':
@@ -14,11 +15,9 @@ for line in fi_le:
     var1 = open('intermediate.tfc','a')
     var1.write(line)
     var1.close()
-
 temp = open('intermediate.tfc', 'a')
 temp.write('BEGIN'+'\n')
 temp.close()
-
 with open('1.real', 'r+') as file:
     for line in file:
         if line.strip() == '.begin':
@@ -30,21 +29,16 @@ with open('1.real', 'r+') as file:
             continue
         list_var = re.split('\\s', line)
         del list_var[-1]
-        print list_var
         for io in range(len(list_var)):
             list_var1.append(list_var[io])
             list_var1.append(',')
         del list_var1[-1]
         list_var1[1] = ' '
         list_var2 = ''.join(list_var1)
-        print list_var2
         my_fp = open('intermediate.tfc', 'a')
         my_fp.write(list_var2 + '\n')
         my_fp.close()
         list_var1 = []
-
-
-
 temp2 = open('intermediate.tfc', 'a')
 temp2.write('END')
 temp2.close()
