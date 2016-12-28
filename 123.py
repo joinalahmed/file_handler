@@ -95,7 +95,8 @@ def level_detail(varn):
 
     # SWAP GATE BLOCK
     if ((m1 == 'f' or m1 == 'F') and int(m2) == 2):
-        del varn[0]print '\n Type of Gate used in Level-',inp , ': ', gate5
+        del varn[0]
+        print '\n Type of Gate used in Level-',inp , ': ', gate5
         print '\n Number of Control Variables : 0'
         print '\n Number of Target Variables : 2'
         print '\n First Control Variable , Line Number :- ', varn[0]
@@ -278,6 +279,7 @@ with open('main1.txt', 'r+') as exp:
         # PERES GATE LIBRARY HANDLER
         if (lib_id == 'P' or lib_id == 'p'):
             print 'i am here'
+            print lenn
 
         # NCT AND GT LIBRARY HANDLER
         if (lib_id == 'T' or lib_id == 't'):
