@@ -1,4 +1,5 @@
 import re
+import  doctest
 
 # GLOBAL FILES AND VARIABLES
 fp = open('intermediate.tfc', 'w+')
@@ -7,7 +8,7 @@ fp.close()
 list_var = []
 list_var1 = []
 
-# REAL FILE TO .tfc GENERATOR BLOCK
+# REAL FILE TO .tfc FILE GENERATOR BLOCK
 fi_le = open('1.real','r+')
 for line in fi_le:
     if line.strip() == '.begin':
@@ -34,6 +35,10 @@ with open('1.real', 'r+') as file:
             list_var1.append(',')
         del list_var1[-1]
         list_var1[1] = ' '
+        if 'p' in list_var1:
+            list_var1[0] = 'p3'
+        if 'P' in list_var1:
+            list_var1[0] = 'P3'
         list_var2 = ''.join(list_var1)
         my_fp = open('intermediate.tfc', 'a')
         my_fp.write(list_var2 + '\n')

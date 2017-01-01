@@ -155,3 +155,5 @@ b=a^b
 c=(a and b)^c
 d=c^d
 e=(c and d)^e
+E=D^E
+F=(D and E)^F
