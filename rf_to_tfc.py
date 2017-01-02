@@ -1,5 +1,4 @@
 import re
-import  doctest
 
 # GLOBAL FILES AND VARIABLES
 fp = open('intermediate.tfc', 'w+')
