@@ -10,3 +10,7 @@ a=(c and d)^a
 c=(b and d)^c
 d=(a and b)^d
 b=c^b
+b=a^b
+c=(a and b)^c
+d=c^d
+a=(c and d)^a

@@ -104,8 +104,12 @@ def level_detail(varn):
         print ('\n Sceond Control Variable , Line Number :-  ', varn[1])
 
     # PERES GATE BLOCK
-    if ((m1 == 'p' or m1 == 'P') and int(m2) > 2):
-        print ('PERES GATE')
+    if (m1 == 'p' or m1 == 'P'):
+        if int(m2) > 2:
+            del varn[0]
+            print(varn)
+            print ('\n Type of Gate Used in Level-', inp , ': ', gate6)
+
 
 
 # BLOCK FOR .tfc FILE PROCESSING , EXTRACTION OF DATA

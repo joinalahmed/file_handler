@@ -10,3 +10,5 @@ t,c,d,a
 t,b,d,c
 t,a,b,d
 t,c,b
+p,a,b,c
+P,c,d,a
