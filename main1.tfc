@@ -18,4 +18,5 @@ t3 a,b,d
 t2 c,b
 p3 a,b,c
 P3 c,d,a
+p3 a,b,c,i
 END

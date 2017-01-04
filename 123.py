@@ -16,7 +16,6 @@ my_fp.close()
 qw = open("main1.txt", "w")
 qw.close()
 
-
 # NEGATIVE CONTROL - HANDLER
 def neg_ctl(hexo):
     for mns in range(len(hexo)):
@@ -109,8 +108,6 @@ def level_detail(varn):
             del varn[0]
             print(varn)
             print ('\n Type of Gate Used in Level-', inp , ': ', gate6)
-
-
 
 # BLOCK FOR .tfc FILE PROCESSING , EXTRACTION OF DATA
 with open('main1.tfc', 'r+') as file:
@@ -278,7 +275,7 @@ with open('main1.txt', 'r+') as exp:
                     bn.close()
 
         # PERES GATE LIBRARY HANDLER
-        if lib_id == 'P' or lib_id == 'p':
+        if lib_id == 'P' or lib_id == 'P':
             temp = list(lenn[2])
             temp.append('=' + lenn[0])
             temp.append('^' + lenn[2])
@@ -370,6 +367,6 @@ with open('main1.txt', 'r+') as exp:
                     neg_ctl(lenn)
 
 # LEVEL(S) DETAILS FUNCTION CALLER BLOCK
-u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0 '))
+u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0'))
 if u_ip == 1:
     level_detail(var2)
