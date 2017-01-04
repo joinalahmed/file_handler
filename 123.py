@@ -1,4 +1,5 @@
 import re
+import texttable
 
 # GLOBAL VARIABLES AND FILES
 gate1 = 'NOT GATE'
@@ -46,11 +47,9 @@ def neg_ctl(hexo):
 
 # BLOCK FOR LEVEL DETAILS
 def level_detail(varn):
-    # print('\n', 'Total Number of Level(s) in Circuit : ', len(varn), ', Starting From 0 - ', len(varn) - 1)
-    # print('\n', 'Total Number of Gate(s) in Circuit : ', len(varn))
-    # inp = int(input('\n Enter the specific level number for further information '))
+    print('\n', 'Total Number of Level(s) in Circuit : ', len(varn), ', Starting From 0 - ', len(varn) - 1)
+    print('\n', 'Total Number of Gate(s) in Circuit : ', len(varn))
     for inp in range(len(varn)):
-
         varn12 = varn[inp]
         temp1 = varn12[0]
         temp1 = str(temp1)
@@ -58,6 +57,7 @@ def level_detail(varn):
         m = r.match(temp1)
         m1 = m.group(1)
         m2 = m.group(2)
+        #table = Texttable()
 
         # NOT GATE BLOCK
         if int(m2) == 1:
