@@ -16,6 +16,7 @@ my_fp.close()
 qw = open("main1.txt", "w")
 qw.close()
 
+
 # NEGATIVE CONTROL - HANDLER
 def neg_ctl(hexo):
     for mns in range(len(hexo)):
@@ -45,69 +46,72 @@ def neg_ctl(hexo):
 
 # BLOCK FOR LEVEL DETAILS
 def level_detail(varn):
-    print ('\n', 'Total Number of Level(s) in Circuit : ', len(varn), ', Starting From 0 - ', len(varn) - 1)
-    print ('\n', 'Total Number of Gate(s) in Circuit : ', len(varn))
-    inp = int(input('\n Enter the specific level number for further information '))
-    varn = varn[inp]
-    temp1 = varn[0]
-    temp1 = str(temp1)
-    r = re.compile("([a-zA-Z]+)([0-9]+)")
-    m = r.match(temp1)
-    m1 = m.group(1)
-    m2 = m.group(2)
+    # print('\n', 'Total Number of Level(s) in Circuit : ', len(varn), ', Starting From 0 - ', len(varn) - 1)
+    # print('\n', 'Total Number of Gate(s) in Circuit : ', len(varn))
+    # inp = int(input('\n Enter the specific level number for further information '))
+    for inp in range(len(varn)):
 
-    # NOT GATE BLOCK
-    if (int(m2) == 1):
-        print ('\n Type of Gate used in Level-', inp, ': ', gate1)
-        print ('\n Number of Control Variable(s) : 0')
-        print ('\n Number of Target Variable(s): 1')
-        print ('\n Target Variable , Line Number :- ', varn[1])
+        varn12 = varn[inp]
+        temp1 = varn12[0]
+        temp1 = str(temp1)
+        r = re.compile("([a-zA-Z]+)([0-9]+)")
+        m = r.match(temp1)
+        m1 = m.group(1)
+        m2 = m.group(2)
 
-    # C-NOT GATE BLOCK
-    if (m1 == 't' or m1 == 'T') and int(m2) == 2:
-        print ('\n Type of Gate used in Level-', inp, ': ', gate2)
-        print ('\n Number of Control Variable(s) : 1')
-        print ('\n Number of Target Variable(s): 1')
-        print ('\n Control Variable , Line Number :- ', varn[-2])
-        print ('\n Target Variable , Line Number :- ', varn[-1])
+        # NOT GATE BLOCK
+        if int(m2) == 1:
+            print('\n Type of Gate used in Level-', inp, ': ', gate1)
+            print('\n Number of Control Variable(s) : 0')
+            print('\n Number of Target Variable(s): 1')
+            print('\n Target Variable , Line Number :- ', varn12[1])
 
-    # TOFFOLI GATE BLOCK
-    if m1 == 't' or m1 == 'T':
-        if int(m2) > 2:
-            print ('\n Type of Gate used in Level-', inp, ': ', gate3)
-            del varn[0]
-            print ('\n Number of Control Variables : ', len(varn) - 1)
-            print ('\n Number of Target Variable : 1')
-            for im in range(len(varn) - 1):
-                print ('\n Control Variable, Line Number :- ', varn[im], '\n')
-            print ('\n Target Variable, Line Number :- ', varn[-1])
+        # C-NOT GATE BLOCK
+        if (m1 == 't' or m1 == 'T') and int(m2) == 2:
+            print('\n Type of Gate used in Level-', inp, ': ', gate2)
+            print('\n Number of Control Variable(s) : 1')
+            print('\n Number of Target Variable(s): 1')
+            print('\n Control Variable , Line Number :- ', varn12[-2])
+            print('\n Target Variable , Line Number :- ', varn12[-1])
 
-    # FREDKIN GATE BLOCK
-    if (m1 == 'f' or m1 == 'F') and int(m2) > 2:
-        del varn[0]
-        print ('\n Type of Gate used in Level-', inp, ': ', gate4)
-        print ('\n Number of Control Variables : ', len(varn) - 2)
-        print ('\n Number of Target Variables : 2')
-        for io in range(len(varn) - 2):
-            print ('\n Control Variable , Line Number :- ', varn[io])
-        print ('\n  First Target Variable , Line Number :- ', varn[-1])
-        print ('\n  Second Target Variable , Line Number :- ', varn[-2])
+        # TOFFOLI GATE BLOCK
+        if m1 == 't' or m1 == 'T':
+            if int(m2) > 2:
+                print('\n Type of Gate used in Level-', inp, ': ', gate3)
+                del varn12[0]
+                print('\n Number of Control Variables : ', len(varn12) - 1)
+                print('\n Number of Target Variable : 1')
+                for im in range(len(varn12) - 1):
+                    print('\n Control Variable, Line Number :- ', varn12[im], '\n')
+                print('\n Target Variable, Line Number :- ', varn12[-1])
 
-    # SWAP GATE BLOCK
-    if (m1 == 'f' or m1 == 'F') and int(m2) == 2:
-        del varn[0]
-        print ('\n Type of Gate used in Level-', inp, ': ', gate5)
-        print ('\n Number of Control Variables : 0')
-        print ('\n Number of Target Variables : 2')
-        print ('\n First Control Variable , Line Number :- ', varn[0])
-        print ('\n Sceond Control Variable , Line Number :-  ', varn[1])
+        # FREDKIN GATE BLOCK
+        if (m1 == 'f' or m1 == 'F') and int(m2) > 2:
+            del varn12[0]
+            print('\n Type of Gate used in Level-', inp, ': ', gate4)
+            print('\n Number of Control Variables : ', len(varn12) - 2)
+            print('\n Number of Target Variables : 2')
+            for ill in range(len(varn12) - 2):
+                print('\n Control Variable , Line Number :- ', varn12[ill])
+            print('\n  First Target Variable , Line Number :- ', varn12[-1])
+            print('\n  Second Target Variable , Line Number :- ', varn12[-2])
 
-    # PERES GATE BLOCK
-    if (m1 == 'p' or m1 == 'P'):
-        if int(m2) > 2:
-            del varn[0]
-            print(varn)
-            print ('\n Type of Gate Used in Level-', inp , ': ', gate6)
+        # SWAP GATE BLOCK
+        if (m1 == 'f' or m1 == 'F') and int(m2) == 2:
+            del varn12[0]
+            print('\n Type of Gate used in Level-', inp, ': ', gate5)
+            print('\n Number of Control Variables : 0')
+            print('\n Number of Target Variables : 2')
+            print('\n First Control Variable , Line Number :- ', varn12[0])
+            print('\n Second Control Variable , Line Number :-  ', varn12[1])
+
+        # PERES GATE BLOCK
+        if m1 == 'p' or m1 == 'P':
+            if int(m2) > 2:
+                del varn12[0]
+                print(varn12)
+                print('\n Type of Gate Used in Level-', inp, ': ', gate6)
+
 
 # BLOCK FOR .tfc FILE PROCESSING , EXTRACTION OF DATA
 with open('main1.tfc', 'r+') as file:
@@ -202,7 +206,7 @@ with open('main1.txt', 'r+') as exp:
             if len(lk) >= 3:
                 ins = ''
                 for lh in range(len(lk)):
-                    ins = ins + str(lk[lh])
+                    ins += str(lk[lh])
                 ins = re.split(',', ins)
                 for il in range(len(ins) - 2):
                     mi = str(ins[il])
@@ -367,6 +371,6 @@ with open('main1.txt', 'r+') as exp:
                     neg_ctl(lenn)
 
 # LEVEL(S) DETAILS FUNCTION CALLER BLOCK
-u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0'))
-if u_ip == 1:
-    level_detail(var2)
+# u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0'))
+# if u_ip == 1:
+level_detail(var2)
