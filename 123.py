@@ -1,5 +1,5 @@
 import re
-import texttable
+import prettytable
 
 # GLOBAL VARIABLES AND FILES
 gate1 = 'NOT GATE'
@@ -57,7 +57,6 @@ def level_detail(varn):
         m = r.match(temp1)
         m1 = m.group(1)
         m2 = m.group(2)
-        #table = Texttable()
 
         # NOT GATE BLOCK
         if int(m2) == 1:
@@ -65,6 +64,9 @@ def level_detail(varn):
             print('\n Number of Control Variable(s) : 0')
             print('\n Number of Target Variable(s): 1')
             print('\n Target Variable , Line Number :- ', varn12[1])
+            my_tab = prettytable.PrettyTable(['Level Number', 'Control Variable', 'Target Variables', 'Gate'])
+            my_tab.add_row([inp, 0, 1, gate1])
+            print(my_tab)
 
         # C-NOT GATE BLOCK
         if (m1 == 't' or m1 == 'T') and int(m2) == 2:

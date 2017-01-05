@@ -7520,3 +7520,4 @@ d=e^d
 b=c^b
 b=a^b
 a=b^a
+a=not a
