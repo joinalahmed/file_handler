@@ -375,4 +375,4 @@ with open('main1.txt', 'r+') as exp:
 # LEVEL(S) DETAILS FUNCTION CALLER BLOCK
 # u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0'))
 # if u_ip == 1:
-level_detail(var2)
+# level_detail(var2)
