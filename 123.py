@@ -69,7 +69,7 @@ def level_detail(varn):
             print(my_tab)
 
         # C-NOT GATE BLOCK
-        if (m1 == 't' or m1 == 'T') and int(m2) == 2:
+        if (m1 is 't' or m1 is 'T') and int(m2) is 2:
             print('\n Type of Gate used in Level-', inp, ': ', gate2)
             print('\n Number of Control Variable(s) : 1')
             print('\n Number of Target Variable(s): 1')
@@ -77,7 +77,7 @@ def level_detail(varn):
             print('\n Target Variable , Line Number :- ', varn12[-1])
 
         # TOFFOLI GATE BLOCK
-        if m1 == 't' or m1 == 'T':
+        if m1 is 't' or m1 is 'T':
             if int(m2) > 2:
                 print('\n Type of Gate used in Level-', inp, ': ', gate3)
                 del varn12[0]
