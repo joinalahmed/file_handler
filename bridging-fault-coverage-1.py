@@ -26,7 +26,6 @@ def checker(liter):
 def compliment_stuck(item):
     d = list()
     for k in range(len(item)):
-
         copy = list(item[k])
         for l in range(len(copy)):
             if copy[l] == str(1):
