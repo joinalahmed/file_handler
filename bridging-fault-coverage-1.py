@@ -1,8 +1,6 @@
-from more_itertools import unique_everseen
 import itertools
+from setuptools.package_index import unique_everseen
 
-
-# Checks the fault covered by the circuit
 
 def checker(liter):
     check_list = list()
@@ -85,7 +83,7 @@ if num_lines > 2:
         test_pattern = main_fun(test_pattern)
         combs = []
         # Generate Sets from Test-Pattern
-        for combination in xrange(length_pattern, len(test_pattern) + 1):
+        for combination in range(length_pattern, len(test_pattern) + 1):
             pattern = [list(x) for x in itertools.combinations(test_pattern, combination)]
             combs.extend(pattern)
         # Check Faults Covered By Sets of Test-Pattern
@@ -99,6 +97,7 @@ if num_lines > 2:
                 if num_lines == line_num:
                     print('Test Pattern for Bridging fault with lines', line_num, combs[combinations])
                     test_set = combs[combinations]
+                    print('this is test set', test_set)
                     ff = open('test_pattern.py', 'a')
                     ff.write(
                         str(test_set) + ' Number of test vectors ' + str(len(test_set)) + ' for number of lines ' + str(

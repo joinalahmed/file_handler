@@ -18,25 +18,95 @@
 #    test_set_sequence[value_sequence] = actual_value
 #    return test_set_sequence
 
-test_set = []
-size_of_test_set_element = int(input('enter the length of bit sequence'))
-for take_input in range(size_of_test_set_element):
-    test_set_ip = str(input('enter the elements of test_set one by one '))
-    if size_of_test_set_element == len(test_set_ip):
-        print('INVALID SEQUENCE')
-        continue
-    test_set.append(test_set_ip)
+import itertools
+from setuptools.package_index import unique_everseen
 
-# if 0 in test_set:
-#    test_set_sequence_refer = zero_checker(test_set)
-#    test_set = test_set_sequence_refer
-
+# GLOBAL VARIABLES
 test_set_case1 = []
-# if 0 in test_set_case1:
-#    test_set_sequence_refer = zero_checker(test_set_case1)
-#    test_set_case1 = test_set_sequence_refer
-
 test_set_case2 = []
+
+
+def test_case_generator(num_lines_main):
+    # Take Input
+    num_lines = num_lines_main
+
+    def checker(liter):
+        check_list = list()
+        for im in range(len(liter)):
+            af = str(liter[im])
+            mid_list = af
+            for xx in range(len(mid_list)):
+                for ro in range(len(mid_list)):
+                    if mid_list[ro] == mid_list[xx]:
+                        continue
+                    else:
+                        alp = str(xx + 1) + str(ro + 1)
+                        check_list.append(alp)
+                check_list = list(unique_everseen(check_list))
+                check_list.sort()
+        return check_list
+
+    # Embeds alternating 1's and 0's
+    def main_fun(append_list):
+        mid_list1 = list()
+        for ins in range(len(append_list)):
+            appended = str(append_list[ins])
+            add0 = appended + '0'
+            add1 = appended + '1'
+            mid_list1.append(add0)
+            mid_list1.append(add1)
+        return list(unique_everseen(mid_list1))
+
+    test_pattern = ['10']
+
+    # Check Number of Lines
+    if num_lines == 1:
+        print('Invalid Input')
+    if num_lines == 2:
+        print('Test Pattern for Bridging fault', test_pattern)
+        # test_set_1 = test_pattern
+
+    if num_lines > 2:
+        for line_num in range(3, num_lines + 1):
+            # test_set_1 = []
+            length_pattern = len(test_pattern)
+            permutations = list()
+            # Generate possible Faults
+            for lines in range(1, line_num + 1):
+                permutations.append(lines)
+            permutations = list(itertools.permutations(permutations, 2))
+
+            for i in range(len(permutations)):
+                var123 = str(permutations[i][0])
+                for j in range(1, len(permutations[i])):
+                    var123 += str(permutations[i][j])
+                permutations[i] = var123
+            permutations = list(unique_everseen(permutations))
+            permutations.sort()
+
+            test_pattern = main_fun(test_pattern)
+            combs = []
+            # Generate Sets from Test-Pattern
+            for combination in range(length_pattern, len(test_pattern) + 1):
+                pattern = [list(x) for x in itertools.combinations(test_pattern, combination)]
+                combs.extend(pattern)
+            # Check Faults Covered By Sets of Test-Pattern
+            for combinations in range(len(combs)):
+                test_result = checker(combs[combinations])
+                test_result.sort()
+                if str(test_result) == str(permutations):
+                    # If all Faults are covered, Print The Test Set
+                    if num_lines == line_num:
+                        print('Test Pattern for Bridging fault with lines', line_num, combs[combinations])
+                        return combs[combinations]
+                    break
+
+
+test_set = ['001', '011', '010', '000']
+var_temp = test_set[0]
+var_temp_1 = len(var_temp)
+test_set_case1 = test_case_generator(var_temp_1)
+print(test_set_case1)
 temp_var = ''
 temp_var1 = ''
 
@@ -49,22 +119,15 @@ for value in range(len(test_set_case1)):
         if temp_var[value_s] is '0':
             temp_var1 += '1'
     test_set_case2.append(temp_var1)
-    print('test_set_case2 : ', test_set_case2)
     temp_var = ''
     temp_var1 = ''
-
-# if 0 in test_set_case2:
-#    test_set_sequence_refer = zero_checker(test_set_case1)
-#    test_set_case1 = test_set_sequence_refer
 
 # SET COMPARATOR AND UNION FINDER
 compare_1 = set(test_set).intersection(test_set_case1)
 compare_2 = set(test_set).intersection(test_set_case2)
 var1 = set(test_set_case1)
 var2 = set(test_set_case2)
-if compare_1 == var1:
-    print('test_set_case1 can be used')
-elif compare_2 == var2:
-    print('test_set_case1 can be used')
+if compare_1 == set():
+    print(test_set_case2, '- Can be used')
 else:
-    print('NO MATCH FOUND')
+    print(test_set_case1, '- Can be used')
