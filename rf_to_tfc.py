@@ -8,11 +8,11 @@ list_var = []
 list_var1 = []
 
 # REAL FILE TO .tfc FILE GENERATOR BLOCK
-fi_le = open('1.real','r+')
+fi_le = open('1.real', 'r+')
 for line in fi_le:
     if line.strip() == '.begin':
         break
-    var1 = open('intermediate.tfc','a')
+    var1 = open('intermediate.tfc', 'a')
     var1.write(line)
     var1.close()
 temp = open('intermediate.tfc', 'a')

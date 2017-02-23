@@ -64,7 +64,6 @@ def test_case_generator(num_lines_main):
         print('Invalid Input')
     if num_lines == 2:
         print('Test Pattern for Bridging fault', test_pattern)
-        # test_set_1 = test_pattern
 
     if num_lines > 2:
         for line_num in range(3, num_lines + 1):
