@@ -1,5 +1,6 @@
 import re
 import prettytable
+from qutip import *
 
 # GLOBAL VARIABLES AND FILES
 gate1 = 'NOT GATE'
