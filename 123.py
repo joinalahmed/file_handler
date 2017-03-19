@@ -1,6 +1,5 @@
 import re
 import prettytable
-from qutip import *
 
 # GLOBAL VARIABLES AND FILES
 gate1 = 'NOT GATE'
@@ -20,6 +19,8 @@ my_fp = open("tt_generator.py", "w")
 my_fp.close()
 qw = open("main1.txt", "w")
 qw.close()
+mid = open('mid.tfc','w+')
+mid.close()
 
 
 # NEGATIVE CONTROL - HANDLER
@@ -411,3 +412,48 @@ with open('main1.txt', 'r+') as exp:
 # u_ip = int(input('WANT LEVEL(S) DETAILS , IF YES PRESS 1 , IF NO PRESS 0'))
 # if u_ip == 1:
 # level_detail(var2)
+# print(var2)
+# SIMULATION HANDLER
+with open('main1.tfc', 'r+') as files:
+    for line in files:
+        top = str(line)
+        if line.strip() == 'BEGIN':
+            break
+        with open('mid.tfc', 'a') as file_mid:
+            file_mid.write(top)
+    with open('mid.tfc', 'a') as file_p:
+        file_p.write('BEGIN'+'\n')
+        temp_list_mid = []
+        level_from = int(input('Enter the level value to smart simulation \n'))
+        # level_to = int(input('Enter the level value to end simulation \n')
+        type_simulation = int(input('ENTER CHOICE :- 1 - FORWARD SIMULATION , 2 - REVERSE SIMULATION \n'))
+        if type_simulation is 1:
+            level_to = int(input('Enter the level value to end simulation \n'))
+            level_to += 1
+            temp_list_mid = var2[level_from:level_to]
+            for ii in range(len(temp_list_mid)):
+                var_12 = temp_list_mid[ii]
+                if len(var_12) is 2:
+                    var_12.insert(1, ' ')
+                    temp_list_mid[ii] = var_12
+                if len(var_12) is 3:
+                    if ' ' not in var_12:
+                        var_12.insert(1, ' ')
+                        var_12.insert(3, ',')
+                        temp_list_mid[ii] = var_12
+                if len(var_12) > 3:
+                    if ' ' not in var_12:
+                        var_12.insert(1, ' ')
+                        var_13 = var_12[2:]
+                        print('var_13', var_13)
+                        temp_list_mid[ii] = var_12
+            print(temp_list_mid)
+            for iii in range(len(temp_list_mid)):
+                temp = ''.join(temp_list_mid[iii])
+                file_p.write(temp)
+            file_p.write('END')
+
+
+
+
+
